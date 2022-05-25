@@ -45,7 +45,6 @@ function onSearchBarHandler(e) {
             Notify.failure('Oops, there is no country with that name!');
             return;
         });
-}
 // rendering a single item
 function countryItemRendering(country) {
     refs.countryInfo.innerHTML = `
@@ -58,6 +57,9 @@ function countryItemRendering(country) {
         </div>
         `;
 }
+}
+
+
 
 
 

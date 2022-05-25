@@ -12,6 +12,11 @@ const refs = {
 };
 
 refs.searchBox.addEventListener('input', debounce(onSearchBarHandler, DEBOUNCE_DELAY));
+// function clearDat
+function clearData() {
+  refs.countriesList.innerHTML = '';
+  refs.countryInfo.innerHTML = '';
+}
 
 
 

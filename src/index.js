@@ -10,3 +10,17 @@ const refs = {
   countryList: document.querySelector('.country-list'),
   countryInfo: document.querySelector('.country-info'),
 };
+
+refs.searchBox.addEventListener('input', debounce(onSearchBarHandler, DEBOUNCE_DELAY));
+
+
+
+
+
+
+// Якщо у відповіді бекенд повернув більше ніж 10 країн, в
+// інтерфейсі з'являється повідомлення про те, що назва повинна 
+// бути специфічнішою. 
+// Якщо бекенд повернув від 2 - х до 10 - и країн, під тестовим полем 
+// відображається список знайдених країн.Кожен елемент списку складається
+//  з прапора та назви країни.

@@ -35,7 +35,7 @@ function onSearchBarHandler(e) {
             }
             else if (countries.length === 1) {
                 clearData();
-                renderCountry(countries[0]);
+                countryItemRendering(countries[0]);
                 return;
             }
             renderCountries(countries);
@@ -47,7 +47,17 @@ function onSearchBarHandler(e) {
         });
 }
 // rendering a single item
-
+function countryItemRendering(country) {
+    refs.countryInfo.innerHTML = `
+        <div class='info-title'>
+        <img src = '${country.flags.svg}'alt = Flag of'${country.name}' 
+        class='flag'><h1>${country.name.official}</h1>
+        <p><span>Capital:</span> ${country.capital}</p>
+        <p><span>Population:</span> ${country.population}</p>
+        <p><span>Languages:</span> ${country.languages}</p>
+        </div>
+        `;
+}
 
 
 

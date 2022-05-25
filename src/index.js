@@ -17,8 +17,14 @@ function clearData() {
   refs.countriesList.innerHTML = '';
   refs.countryInfo.innerHTML = '';
 }
-
-
+// searching through the bar
+function onSearchBarHandler(e) {
+    const inputValue = e.target.value.trim();
+    if (inputValue === '') {
+        clearData();
+        return;
+    }
+}
 
 
 

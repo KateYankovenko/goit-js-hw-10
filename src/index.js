@@ -17,16 +17,15 @@ function clearData() {
   refs.countriesList.innerHTML = '';
   refs.countryInfo.innerHTML = '';
 }
-// searching through the bar
+// Якщо бекенд повернув від 2 - х до 10 - и країн, під тестовим полем 
+// відображається список знайдених країн.Кожен елемент списку складається
+//  з прапора та назви країни.
 function onSearchBarHandler(e) {
     const inputValue = e.target.value.trim();
     if (inputValue === '') {
         clearData();
         return;
     }
-// Якщо бекенд повернув від 2 - х до 10 - и країн, під тестовим полем 
-// відображається список знайдених країн.Кожен елемент списку складається
-//  з прапора та назви країни.
     fetchCountries(inputValue)
         .then(countries => {
             if (countries.length > 10) {
@@ -34,12 +33,21 @@ function onSearchBarHandler(e) {
                 Notify.info('Too many matches found. Please enter a more specific query!');
                 return;
             }
+            else if (countries.length === 1) {
+                clearData();
+                renderCountry(countries[0]);
+                return;
+            }
+            renderCountries(countries);
         })
+        .catch(error => {
+            clearData();
+            Notify.failure('Oops, there is no country with that name!');
+            return;
+        });
 }
+// rendering a single item
 
 
 
 
-// Якщо у відповіді бекенд повернув більше ніж 10 країн, в
-// інтерфейсі з'являється повідомлення про те, що назва повинна 
-// бути специфічнішою. 

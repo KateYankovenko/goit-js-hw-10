@@ -39,13 +39,24 @@ function onSearchBarHandler(e) {
                 countryItemRendering(countries[0]);
                 return;
             }
-            renderCountries(countries);
+            renderCountriesList(countries);
         })
         .catch(error => {
             clearData();
             Notify.failure('Oops, there is no country with that name!');
             return;
         });
+// render list
+function renderCountriesList(countries) {
+    clearData();
+   const countriesMarkup = countries.map((country) => {
+       return `<li>
+        <img src = '${country.flags.svg}'alt = Flag of'${country.name.official}'/>
+        <span>${country.name.official}</span>
+        </li>`   
+   }).join("");
+    refs.countriesList.innerHTML = countriesMarkup;
+}
 // rendering a single item
 function countryItemRendering(country) {
     refs.countryInfo.innerHTML = `
@@ -58,9 +69,24 @@ function countryItemRendering(country) {
         </div>
         `;
 }
+
 }
 
 
-
-
+// if (countries.length === 1) {
+//         const country = countries[0];
+//         refs.countryInfo.innerHTML = `
+//         <div class="info-title">
+//         <img src = "${country.flag}" alt = Flag of"${country.name}">
+//         <h1>${country.name}</h1>
+//         <p><span>Capital:</span> ${country.capital}</p>
+//         <p><span>Population:</span> ${country.population}</p>
+//         <p><span>Languages:</span> ${country.languages}</p>
+//         </div>
+//         `;
+//         refs.countriesList.innerHTML = '';}
+// Достатньо, щоб застосунок працював для більшості країн.
+// Деякі країни, як - от Sudan, можуть створювати проблеми,
+// оскільки назва країни є частиною назви іншої країни - South Sudan.
+// Не потрібно турбуватися про ці винятки.
 

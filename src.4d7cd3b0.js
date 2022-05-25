@@ -10,6 +10,6 @@ var t,e=arguments[3];!function(e,i){"function"==typeof t&&t.amd?t([],function(){
 },{}],"SvwL":[function(require,module,exports) {
 "use strict";function e(e){return fetch("https://restcountries.com/v3.1/name/${name}?fields=name,capital,population,flags,languages").then(e=>{if(200!==e.status)throw new Error(e.status);return e.json()})}Object.defineProperty(exports,"__esModule",{value:!0}),exports.fetchCountries=e;
 },{}],"Focm":[function(require,module,exports) {
-"use strict";require("./css/styles.css");var e=u(require("lodash.debounce")),r=u(require("notiflix")),s=require("./fetchCountries");function u(e){return e&&e.__esModule?e:{default:e}}const t=300;
+"use strict";require("./css/styles.css");var e=o(require("lodash.debounce")),r=o(require("notiflix")),t=require("./fetchCountries");function o(e){return e&&e.__esModule?e:{default:e}}const u=300,c={searchBox:document.querySelector("#search-box"),countryList:document.querySelector(".country-list"),countryInfo:document.querySelector(".country-info")};
 },{"./css/styles.css":"krre","lodash.debounce":"PZFh","notiflix":"cwzQ","./fetchCountries":"SvwL"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-10/src.d960c8fd.js.map
+//# sourceMappingURL=/goit-js-hw-10/src.4d7cd3b0.js.map

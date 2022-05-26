@@ -1,3 +1,4 @@
+// error_reporting(E_ERROR | E_PARSE);
 import './css/styles.css';
 import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
@@ -11,11 +12,11 @@ const refs = {
   countryList: document.querySelector('.country-list'),
   countryInfo: document.querySelector('.country-info'),
 };
-
+// let country;
 refs.searchBox.addEventListener('input', debounce(onSearchBarHandler, DEBOUNCE_DELAY));
 // function clearDat
 function clearData() {
-  refs.countriesList.innerHTML = '';
+  refs.countryList.innerHTML = '';
   refs.countryInfo.innerHTML = '';
 }
 // Якщо бекенд повернув від 2 - х до 10 - и країн, під тестовим полем 
@@ -45,7 +46,9 @@ function onSearchBarHandler(e) {
             clearData();
             Notify.failure('Oops, there is no country with that name!');
             return;
-        });
+        }
+    // renderCountriesList(countries);    
+    );
 // render list
 function renderCountriesList(countries) {
     clearData();
@@ -68,6 +71,7 @@ function countryItemRendering(country) {
         <p><span>Languages:</span> ${country.languages}</p>
         </div>
         `;
+    // console.log(country);
 }
 
 }

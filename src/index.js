@@ -71,7 +71,7 @@ function countryItemRendering(country) {
         <p><span>Languages:</span> ${country.languages}</p>
         </div>
         `;
-    // console.log(country);
+    console.log(country);
 }
 
 }

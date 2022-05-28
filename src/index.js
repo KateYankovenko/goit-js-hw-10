@@ -34,8 +34,7 @@ function onSearchBarHandler(e) {
                 clearData();
                 Notify.info('Too many matches found. Please enter a more specific query!');
                 return;
-            }
-            else if (countries.length === 1) {
+            }else if (countries.length === 1) {
                 clearData();
                 countryItemRendering(countries[0]);
                 return;
@@ -46,32 +45,28 @@ function onSearchBarHandler(e) {
             clearData();
             Notify.failure('Oops, there is no country with that name!');
             return;
-        }
-    // renderCountriesList(countries);    
+        }   
     );
+    // rendering a single item
+    function countryItemRendering(country) {
+        refs.countryInfo.innerHTML = `
+        <div class='info-title'>
+        <img src = '${country.flags.svg}'alt = Flag of'${country.name}' 
+        class='flag'><h1>${country.name.official}</h1></div>
+        <p><span>Capital:</span> ${country.capital}</p>
+        <p><span>Population:</span> ${country.population}</p>
+        <p><span>Languages:</span> ${Object.values(country.languages).join(',')}</p>
+        `;
+}
 // render list
 function renderCountriesList(countries) {
-    clearData();
-   const countriesMarkup = countries.map((country) => {
+    clearData();//to clear country card (from page) that was choosen before
+   refs.countryList.innerHTML = countries.map((country) => {
        return `<li>
         <img src = '${country.flags.svg}'alt = Flag of'${country.name.official}'/>
         <span>${country.name.official}</span>
         </li>`   
    }).join("");
-    refs.countriesList.innerHTML = countriesMarkup;
-}
-// rendering a single item
-function countryItemRendering(country) {
-    refs.countryInfo.innerHTML = `
-        <div class='info-title'>
-        <img src = '${country.flags.svg}'alt = Flag of'${country.name}' 
-        class='flag'><h1>${country.name.official}</h1>
-        <p><span>Capital:</span> ${country.capital}</p>
-        <p><span>Population:</span> ${country.population}</p>
-        <p><span>Languages:</span> ${country.languages}</p>
-        </div>
-        `;
-    console.log(country);
 }
 
 }

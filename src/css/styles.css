@@ -21,11 +21,30 @@ body {
 li {
   list-style: none;
   display: flex;
+  /* margin-bottom: 5px; */
+  /* flex-direction: column; */
+}
+li:not(:last-child){
+  margin-bottom: 5px;
 }
 img {
   width: 50px;
-  margin: 5px;
+  margin-right: 5px;
 }
+.country-list{
+ 
+  padding: 0;
+}
+.info-title {
+  display: flex;
+  /* text-align: center; */
+}
+span{
+  font-size: x-large;
+  font-weight: 600;
+}
+
+
 
 
 

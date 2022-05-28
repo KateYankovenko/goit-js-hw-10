@@ -57,6 +57,7 @@ function onSearchBarHandler(e) {
         <p><span>Population:</span> ${country.population}</p>
         <p><span>Languages:</span> ${Object.values(country.languages).join(',')}</p>
         `;
+        console.log(country);
 }
 // render list
 function renderCountriesList(countries) {
